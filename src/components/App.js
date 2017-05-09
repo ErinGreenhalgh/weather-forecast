@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  { position }  from '../data/geolocation';
+import  { position, options }  from '../data/geolocation';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,10 +18,6 @@ class App extends React.Component {
 
     function success(position) {
       this.setState({ position })
-    }
-
-    let options = {
-      timeout: 5000
     }
 
     return position(success.bind(this), error.bind(this), options);
