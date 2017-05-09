@@ -4,8 +4,8 @@ let options = {
   timeout: 5000
 }
 
-let position = (success, error, options) => {
-  return geo.getCurrentPosition(success, error, options)
+const position = (success, error, options) => {
+  return geo.getCurrentPosition(success, error, options);
 }
 
 export { position, options };
