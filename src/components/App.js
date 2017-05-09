@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  { geo }  from '../data/geolocation';
+import  { position }  from '../data/geolocation';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      position: "nothing"
+      position: ""
     }
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
-    let that = this;
     function error(err) {
-      that.setState({ position: err.message })
+      this.setState({ position: err.message })
     }
 
     function success(position) {
-      that.setState({ position })
+      this.setState({ position })
     }
 
     let options = {
       timeout: 5000
     }
 
-    return geo.getCurrentPosition(success, error, options);
+    return position(success.bind(this), error.bind(this), options);
   }
 
   render(){

@@ -1,3 +1,6 @@
 let geo = navigator.geolocation;
 
-export { geo };
+let position = (success, error, options) => {
+  return geo.getCurrentPosition(success, error, options)
+}
+
