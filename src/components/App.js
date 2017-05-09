@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  { position, options }  from '../data/geolocation';
+import  { options, position }  from '../data/geolocation';
 
 class App extends React.Component {
   constructor(props) {
