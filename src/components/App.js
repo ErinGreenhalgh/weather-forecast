@@ -12,11 +12,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    function error(err) {
+    const error = err => {
       this.setState({ position: err.message })
     }
 
-    function success(position) {
+    const success = position => {
       this.setState({ position })
     }
 
