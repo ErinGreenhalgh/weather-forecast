@@ -4,7 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import App from './components/App';
+import App from './containers/App';
 
 const Routes = () => (
   <Router>
