@@ -1,4 +1,19 @@
+import React from 'react';
 import { connect } from 'react-redux';
+import SunriseBar from '../components/SunriseBar';
+
+class App extends React.Component {
+  //won't have local state;
+  //state comes from redux
+
+  render() {
+    return(
+      <SunriseBar />
+    )
+  }
+
+
+}
 
 const mapStateToProps = state => {
   // return an object of redux store data
