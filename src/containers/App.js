@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SunriseBar from '../components/SunriseBar';
+import { bindActionCreators } from 'redux';
+import * as sunriseActions from '../actions/sunriseActions'
 
 class App extends React.Component {
   //won't have local state;
   //state comes from redux
 
   render() {
+    console.log("props:", this.props)
     return(
       <SunriseBar />
     )
@@ -15,16 +18,17 @@ class App extends React.Component {
 
 }
 
+
 const mapStateToProps = state => {
-  // return an object of redux store data
-  // that you'd like available in your component
-  return {};
+  return {
+    data: state.results
+  };
 }
 
 const mapDispatchToProps = dispatch => {
-  // return an object of methods you'd like
-  // to dispatch as redux actions
-  return {};
+  return {
+    actions: bindActionCreators(sunriseActions, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
