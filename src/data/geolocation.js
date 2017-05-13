@@ -4,8 +4,10 @@ const options = {
   timeout: 5000
 }
 
-const position = (success, error, options) => {
-  return geo.getCurrentPosition(success, error, options);
+const coordsAsync = (success, error, options) => {
+  return new Promise((resolve, reject) => {
+    geo.getCurrentPosition(success, error, options);
+  });
 }
 
 export { options, position };
