@@ -1,7 +1,7 @@
 import axios from 'axios';
 import moxios from 'moxios';
 
-import { sunriseUrl, getSunriseData }  from '../data/sunriseAndSunset';
+import { getSunriseData }  from '../data/sunriseAndSunset';
 
 describe('sunrise data api', () => {
 

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const sunriseUrl = "https://api.sunrise-sunset.org/json?"
+const sunriseUrl = "https://api.sunrise-sunset.org/json?"
 
 export const getSunriseData = ( coordinates, date ) => {
   let instance = axios.create({
