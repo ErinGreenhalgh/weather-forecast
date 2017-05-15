@@ -2,14 +2,18 @@ import axios from 'axios'
 
 export const sunriseUrl = "https://api.sunrise-sunset.org/json?"
 
-export const getSunriseData = () => {
+export const getSunriseData = ( coordinates, date ) => {
   let instance = axios.create({
-    baseURL: "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2017-05-11",
-    timeout: 5000
+    baseURL: sunriseUrl,
+    timeout: 5000,
+    params: {
+      lat: coordinates.latitude,
+      lng: coordinates.longitude,
+      date
+    }
   })
 
   instance.get().then( (response) => {
-    console.log('data in method:', response.data)
     return response.data;
   })
 }
