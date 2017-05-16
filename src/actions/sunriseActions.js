@@ -9,9 +9,7 @@ export const fetchSunriseDataSuccess = (data) => {
 export const fetchSunriseData = options => dispatch => {
   coordsAsync()
   .then(coords => {
-    console.log("coords:", coords)
-    getSunriseData(coords, "today")
-    //this returns a promise so we should be able to chain it...
+    return getSunriseData(coords, "today")
   })
   .then(response => {
     console.log("sunriseData:", response)
