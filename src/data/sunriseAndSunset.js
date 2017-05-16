@@ -13,7 +13,9 @@ export const getSunriseData = ( coordinates, date ) => {
     }
   })
 
-  instance.get().then( (response) => {
-    return response.data;
-  })
+  // instance.get().then( (response) => {
+  //   console.log("getting sunrise data:", response.data)
+  //   return response.data;
+  // })
+  return instance.get()
 }
