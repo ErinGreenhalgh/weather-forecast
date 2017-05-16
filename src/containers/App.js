@@ -1,15 +1,33 @@
+import React from 'react';
 import { connect } from 'react-redux';
+import SunriseBar from '../components/SunriseBar';
+import { bindActionCreators } from 'redux';
+import * as sunriseActions from '../actions/sunriseActions'
+
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.actions.fetchSunriseData();
+  }
+
+  render() {
+    return(
+      <SunriseBar sunriseTime={this.props.data.sunrise}
+                  sunsetTime={this.props.data.sunset}/>
+    )
+  }
+}
 
 const mapStateToProps = state => {
-  // return an object of redux store data
-  // that you'd like available in your component
-  return {};
+  return {
+    data: state.sunriseData
+  };
 }
 
 const mapDispatchToProps = dispatch => {
-  // return an object of methods you'd like
-  // to dispatch as redux actions
-  return {};
+  return {
+    actions: bindActionCreators(sunriseActions, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
