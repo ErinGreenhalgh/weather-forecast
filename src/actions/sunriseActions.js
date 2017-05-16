@@ -1,12 +1,13 @@
 import * as types from './actionTypes';
-import { success, error, options, coordsAsync } from '../data/geolocation';
+import { coordsAsync } from '../data/geolocation';
 import { getSunriseData } from '../data/sunriseAndSunset';
 
 export const fetchSunriseDataSuccess = (data) => {
+  console.log('success!')
   return { type: types.FETCH_SUNRISE_DATA_SUCCESS, sunriseData: data }
 }
 export const fetchSunriseData = options => dispatch => {
-  coordsAsync(success, error, options)
+  coordsAsync()
   .then(coords => {
     getSunriseData(coords, "today")
   })
