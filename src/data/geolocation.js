@@ -1,22 +1,18 @@
 const geo = navigator.geolocation;
 
-const success = (position) => {
-  return { lat:  position.coords.latitude,
-           long: position.coords.longitude };
-}
-
 const error = (err) => {
   return err.message;
 }
 
-const options = {
-  timeout: 5000
-}
-
-const coordsAsync = (success, error, options) => {
+const coordsAsync = () => {
   return new Promise((resolve, reject) => {
-    geo.getCurrentPosition(success, error, options);
+    return geo.getCurrentPosition((position) => {
+      resolve({ lat:  position.coords.latitude,
+               long: position.coords.longitude })
+    }, error);
+    //the error callback should be replaced with a reject() function
+    //containing the error message
   });
 }
 
-export { success, error, options, coordsAsync };
+export { coordsAsync };
