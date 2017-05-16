@@ -3,8 +3,7 @@ import { coordsAsync } from '../data/geolocation';
 import { getSunriseData } from '../data/sunriseAndSunset';
 
 export const fetchSunriseDataSuccess = (data) => {
-  console.log('in success action:', data)
-  return { type: types.FETCH_SUNRISE_DATA_SUCCESS, sunriseData: data }
+  return { type: types.FETCH_SUNRISE_DATA_SUCCESS, sunriseData: data.results }
 }
 export const fetchSunriseData = options => dispatch => {
   coordsAsync()
@@ -12,8 +11,7 @@ export const fetchSunriseData = options => dispatch => {
     return getSunriseData(coords, "today")
   })
   .then(response => {
-    console.log("sunriseData:", response)
-    dispatch(fetchSunriseDataSuccess(response))
+    dispatch(fetchSunriseDataSuccess(response.data))
    })
   .catch(error => {
     console.log("sunrise data error:", error)
