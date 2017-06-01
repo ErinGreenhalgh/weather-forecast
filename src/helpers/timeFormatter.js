@@ -1,7 +1,6 @@
 export const convertToLocalTime = (isoUtcTime) => {
   var date = new Date();
   const offset = date.getTimezoneOffset();
-  console.log("offset:", offset)
   const utcMinutes = convertIso8601ToMinutes(isoUtcTime);
   const rawTime = utcMinutes - offset;
   return convertMinutesToIso(rawTime);
