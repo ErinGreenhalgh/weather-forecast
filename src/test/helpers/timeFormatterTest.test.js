@@ -57,4 +57,12 @@ describe('time formatter', () => {
     const result = formatter.convertToLocalTime(utcTime);
     expect(result).toEqual(expectedDenverTime);
   });
+
+  it('converts to local time, correctly accounting for 24 hour clock', () => {
+    const utcTime = '2017-05-31T02:22:15+00:00';
+    const expectedLocalTime = '20:22';
+
+    const result = formatter.convertToLocalTime(utcTime);
+    expect(result).toEqual(expectedLocalTime);
+  })
 });
