@@ -8,12 +8,9 @@ export const convertToLocalTime = (isoUtcTime) => {
 
 export const convertMinutesToIso = (timeInMinutes) => {
   const hours = Math.floor(timeInMinutes / 60);
-  var minutes = timeInMinutes % 60;
-  if (minutes == 0) {
-    minutes = "00"
-  }
-  //final formatting to string should be in a differnt method
-  return hours.toString() + ":" + minutes.toString();
+  const minutes = timeInMinutes % 60;
+  return formatDisplayTime({hours, minutes})
+}
 
 export const formatDisplayTime = (time) => {
   var hours = time.hours.toString();
