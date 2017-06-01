@@ -1,8 +1,15 @@
+const minutesPerDay = 1440
+
 export const convertToLocalTime = (isoUtcTime) => {
   var date = new Date();
   const offset = date.getTimezoneOffset();
   const utcMinutes = convertIso8601ToMinutes(isoUtcTime);
-  const rawTime = utcMinutes - offset;
+  var rawTime = null;
+  if (offset > utcMinutes){
+    rawTime = minutesPerDay - (offset - utcMinutes);
+  } else {
+    rawTime = utcMinutes - offset;
+  }
   return convertMinutesToIso(rawTime);
 }
 
