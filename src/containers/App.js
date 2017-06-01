@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SunriseBar from '../components/SunriseBar';
 import { bindActionCreators } from 'redux';
-import * as sunriseActions from '../actions/sunriseActions'
+import * as sunriseActions from '../actions/sunriseActions';
+
 
 class App extends React.Component {
 

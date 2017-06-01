@@ -9,7 +9,8 @@ export const getSunriseData = ( coordinates, date ) => {
     params: {
       lat: coordinates.latitude,
       lng: coordinates.longitude,
-      date
+      date,
+      formatted: 0
     }
   })
 
