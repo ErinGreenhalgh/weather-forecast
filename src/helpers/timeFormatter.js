@@ -14,6 +14,18 @@ export const convertMinutesToIso = (timeInMinutes) => {
   }
   //final formatting to string should be in a differnt method
   return hours.toString() + ":" + minutes.toString();
+
+export const formatDisplayTime = (time) => {
+  var hours = time.hours.toString();
+  var minutes = time.minutes.toString();
+  return correctlyAppendZeros(hours) + ":" + correctlyAppendZeros(minutes);
+}
+
+const correctlyAppendZeros = (time) => {
+  if (time.length == 1) {
+    time = "0" + time;
+  }
+  return time;
 }
 
 export const convertIso8601ToMinutes = (isoDateTime) => {
