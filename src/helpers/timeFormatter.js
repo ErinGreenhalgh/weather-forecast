@@ -1,8 +1,11 @@
-const convertToLocalTime = (utcTime) => {
-  const offset = Date.getTimezoneOffset();
-  //get the time in minutes from the utcTime
-  //add the offset to the time in minutes
-  //(will still work for negative offsets)
+export const convertToLocalTime = (isoUtcTime) => {
+  var date = new Date();
+  const offset = date.getTimezoneOffset();
+  console.log("offset:", offset)
+  const utcMinutes = convertIso8601ToMinutes(isoUtcTime);
+  const rawTime = utcMinutes - offset;
+  return convertMinutesToIso(rawTime);
+}
 
 export const convertMinutesToIso = (timeInMinutes) => {
   const hours = Math.floor(timeInMinutes / 60);
