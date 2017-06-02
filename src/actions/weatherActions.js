@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import { coordsAsync } from '../data/geolocation';
+import WeatherAPIMock from '../mockAPI/weatherConditionsMock';
 
 export const fetchConditionsSuccess = data => {
   return {
@@ -14,7 +15,7 @@ export const fetchConditionsSuccess = data => {
 export const fetchConditions = options => dispatch => {
   coordsAsync()
   .then( coords => {
-    return getConditions(coords)
+    return WeatherAPIMock.getConditions(coords)
   })
   .then(response => {
     dispatch(fetchConditionsSuccess(response))

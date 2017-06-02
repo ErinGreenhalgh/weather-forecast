@@ -14,7 +14,7 @@ const weatherConditions = {
   "cod":200
 }
 
-class WeatherAPIMock {
+export default class WeatherAPIMock {
   static getConditions(coorindates) {
     return new Promise((resolve, reject) => {
       setTimeout( () => {
