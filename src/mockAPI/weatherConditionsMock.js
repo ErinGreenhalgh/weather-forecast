@@ -15,7 +15,7 @@ const weatherConditions = {
 }
 
 class WeatherAPIMock {
-  static getConditions() {
+  static getConditions(coorindates) {
     return new Promise((resolve, reject) => {
       setTimeout( () => {
         resolve(Object.assign({}, weatherConditions));
