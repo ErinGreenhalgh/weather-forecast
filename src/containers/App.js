@@ -10,7 +10,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.sunriseActions.fetchSunriseData();
-    // this.props.weatherActions.fetchConditions();
+    this.props.weatherActions.fetchConditions();
   }
 
   render() {
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     sunriseActions: bindActionCreators(sunriseActions, dispatch),
-    // weatherActions: bindActionCreators(weatherActions, dispatch)
+    weatherActions: bindActionCreators(weatherActions, dispatch)
   };
 }
 

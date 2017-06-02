@@ -7,7 +7,7 @@ export const fetchConditionsSuccess = data => {
     type: types.FETCH_CONDITIONS_SUCCESS,
     conditions: {
       temperature: data.main.temp,
-      description: data.weather.description,
+      description: data.weather[0].description,
     }
   }
 }
