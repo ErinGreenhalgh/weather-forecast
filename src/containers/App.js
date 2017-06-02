@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SunriseBar from '../components/SunriseBar';
+import CurrentConditionsHeader from '../components/CurrentConditionsHeader';
 import { bindActionCreators } from 'redux';
 import * as sunriseActions from '../actions/sunriseActions';
 
@@ -13,7 +13,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <SunriseBar sunriseTime={this.props.data.sunrise}
+      <CurrentConditionsHeader sunriseTime={this.props.data.sunrise}
                   sunsetTime={this.props.data.sunset}/>
     )
   }
