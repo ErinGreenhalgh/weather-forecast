@@ -3,31 +3,37 @@ import { connect } from 'react-redux';
 import CurrentConditionsHeader from '../components/CurrentConditionsHeader';
 import { bindActionCreators } from 'redux';
 import * as sunriseActions from '../actions/sunriseActions';
+import * as weatherActions from '../actions/weatherActions';
 
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.actions.fetchSunriseData();
+    this.props.sunriseActions.fetchSunriseData();
+    // this.props.weatherActions.fetchConditions();
   }
 
   render() {
     return(
-      <CurrentConditionsHeader sunriseTime={this.props.data.sunrise}
-                  sunsetTime={this.props.data.sunset}/>
+      <CurrentConditionsHeader temperature={this.props.currentConditions.temperature}
+                               description={this.props.currentConditions.description}
+                               sunriseTime={this.props.sunriseData.sunrise}
+                               sunsetTime={this.props.sunriseData.sunset}/>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    data: state.sunriseData
+    sunriseData: state.sunriseData,
+    currentConditions: state.weatherConditions
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(sunriseActions, dispatch)
+    sunriseActions: bindActionCreators(sunriseActions, dispatch),
+    // weatherActions: bindActionCreators(weatherActions, dispatch)
   };
 }
 
