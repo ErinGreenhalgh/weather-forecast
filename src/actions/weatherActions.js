@@ -19,9 +19,4 @@ export const fetchConditions = options => dispatch => {
   .then(response => {
     dispatch(fetchConditionsSuccess(response))
   })
-  //1)get the coordinates from where they are stored
-  //2) feed them to the weatherAPI call
-  //3) then dispatch the success action with the
-  //data from the weather api
-
 }
