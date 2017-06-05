@@ -1,6 +1,4 @@
 import axios from 'axios';
-import moxios from 'moxios';
-
 import { getSunriseData }  from '../data/sunriseAndSunset';
 
 describe('sunrise data api', () => {
@@ -16,5 +14,4 @@ describe('sunrise data api', () => {
     let expectedPromise = getSunriseData(coords, date);
     expect(expectedPromise instanceof Promise).toEqual(true);
   });
-
 });
